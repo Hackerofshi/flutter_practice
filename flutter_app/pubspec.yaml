@@ -29,12 +29,15 @@ dependencies:
   shrine_images: 1.1.1
   dio: ^3.0.3
   provider: ^2.0.1+1
+  shared_preferences: ^0.5.1+1
+
 dev_dependencies:
-
-
   flutter_test:
     sdk: flutter
-
+  json_model: ^0.0.2
+  intl_translation: ^0.17.4
+  build_runner: ^1.0.0
+  json_serializable: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
