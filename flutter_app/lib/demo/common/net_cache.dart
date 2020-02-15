@@ -1,7 +1,7 @@
 import 'dart:collection';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_app/demo/common/Global.dart';
+import 'package:flutter_app/demo/common/global.dart';
 
 class CacheObject {
   CacheObject(this.response)

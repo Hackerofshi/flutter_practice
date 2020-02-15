@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/demo/models/repo.dart';
 import 'package:flutter_app/demo/models/user.dart';
 
-import 'Global.dart';
+import 'global.dart';
 
 class Git {
   // 在网络请求过程中可能会需要使用当前的context信息，比如在请求失败时

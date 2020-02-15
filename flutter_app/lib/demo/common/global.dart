@@ -51,4 +51,9 @@ class Global {
     //初始化网络请求相关配置
     Git.init();
   }
+
+
+  // 持久化Profile信息
+  static saveProfile() =>
+      _preferences.setString("profile", jsonEncode(profile.toJson()));
 }
