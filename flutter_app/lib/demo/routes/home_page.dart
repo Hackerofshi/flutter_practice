@@ -37,7 +37,7 @@ class _HomeRouteState extends State<HomeRoute> {
       );
     } else {
       //已登录，则显示项目列表
-      return InfiniteListView(
+      return InfiniteListView<Repo>(
           onRetrieveData: (int page, List<Repo> items, bool refresh) async {
         var data = await Git(context).getRepos(
             refresh: refresh, queryParameters: {'page': page, 'page_size': 20});
@@ -113,7 +113,6 @@ class MyDrawer extends StatelessWidget {
     });
   }
 
-
   // 构建菜单项
   Widget _buildMenus() {
     return Consumer<UserModel>(
@@ -131,35 +130,36 @@ class MyDrawer extends StatelessWidget {
               title: Text(gm.language),
               onTap: () => Navigator.pushNamed(context, "language"),
             ),
-            if(userModel.isLogin) ListTile(
-              leading: const Icon(Icons.power_settings_new),
-              title: Text(gm.logout),
-              onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (ctx) {
-                    //退出账号前先弹二次确认窗
-                    return AlertDialog(
-                      content: Text(gm.logoutTip),
-                      actions: <Widget>[
-                        FlatButton(
-                          child: Text(gm.cancel),
-                          onPressed: () => Navigator.pop(context),
-                        ),
-                        FlatButton(
-                          child: Text(gm.yes),
-                          onPressed: () {
-                            //该赋值语句会触发MaterialApp rebuild
-                            userModel.user = null;
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ],
-                    );
-                  },
-                );
-              },
-            ),
+            if (userModel.isLogin)
+              ListTile(
+                leading: const Icon(Icons.power_settings_new),
+                title: Text(gm.logout),
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (ctx) {
+                      //退出账号前先弹二次确认窗
+                      return AlertDialog(
+                        content: Text(gm.logoutTip),
+                        actions: <Widget>[
+                          FlatButton(
+                            child: Text(gm.cancel),
+                            onPressed: () => Navigator.pop(context),
+                          ),
+                          FlatButton(
+                            child: Text(gm.yes),
+                            onPressed: () {
+                              //该赋值语句会触发MaterialApp rebuild
+                              userModel.user = null;
+                              Navigator.pop(context);
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+              ),
           ],
         );
       },
@@ -173,10 +173,7 @@ class RepoItem extends StatefulWidget {
   final Repo repo;
 
   @override
-  State<StatefulWidget> createState() {
-    @override
-    _RepoItemState createState() => _RepoItemState();
-  }
+  _RepoItemState createState() => _RepoItemState();
 }
 
 class _RepoItemState extends State<RepoItem> {
