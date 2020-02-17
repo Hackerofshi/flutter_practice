@@ -34,8 +34,9 @@ dependencies:
   cached_network_image: ^0.8.0
   fluttertoast: ^3.0.3
   flukit: ^1.0.2
-
-
+  encrypt: ^4.0.0
+  pointycastle: ^1.0.2
+  simple_rsa: ^0.0.5
 
 dev_dependencies:
   flutter_test:
@@ -50,7 +51,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

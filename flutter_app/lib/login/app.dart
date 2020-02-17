@@ -56,7 +56,6 @@ class ShrineApp extends StatelessWidget{
     if(settings.name !='/login'){
       return null;
     }
-
     return MaterialPageRoute<void>(
       settings: settings,
       builder: (BuildContext context)=>LoginPage(),

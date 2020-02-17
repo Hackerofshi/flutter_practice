@@ -1,5 +1,9 @@
 import 'dart:convert';
 
+import 'package:flutter_app/demo/common/git_api1.dart';
+import 'package:flutter_app/demo/common/result_data.dart';
+import 'package:flutter_app/demo/common/rsautils.dart';
+import 'package:flutter_app/demo/models/loginbean.dart';
 import 'package:flutter_app/demo/states/profile_change_notifier.dart';
 
 import '../index.dart';
@@ -91,10 +95,17 @@ class _LoginRouteState extends State<LoginRoute> {
   void _onLogin() async {
     // 先验证各个表单字段是否合法
 
+
+
     if ((_formKey.currentState as FormState).validate()) {
       showLoading(context);
       User user;
-      try {
+
+      login();
+
+
+
+      /*try {
         user = await Git(context)
             .login(_unameController.text, _pwdController.text);
 
@@ -119,7 +130,32 @@ class _LoginRouteState extends State<LoginRoute> {
       if (user != null) {
         // 返回
         Navigator.of(context).pop();
+      }*/
+    }
+  }
+
+  void login() async {
+
+    Loginbean loginbean = Loginbean();
+
+    loginbean.password = await Encrypt.encrypt(_pwdController.text);
+    loginbean.username = _unameController.text;
+
+
+    try {
+      ResultData  str = await Git1(context)
+              .login1(loginbean: loginbean);
+      print("---"+str.data);
+    } catch (e) {
+      //登录失败则提示
+      if (e.response?.statusCode == 401) {
+        showToast(GmLocalizations.of(context).userNameOrPasswordWrong);
+      }  else {
+        showToast(e.toString());
       }
+    } finally {
+      // 隐藏loading框
+      Navigator.of(context).pop();
     }
   }
 }
