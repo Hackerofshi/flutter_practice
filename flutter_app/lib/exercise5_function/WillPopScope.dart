@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/exerise2/testButton.dart';
+import 'package:flutter_app/exercise2/testButton.dart';
 
 class WillPopPage extends StatelessWidget {
   final ThemeData _KShrineTheme = buildShrineTheme();

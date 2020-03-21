@@ -9,7 +9,7 @@ InheritedWidget和React中的context功能类似，和逐级传递数据相比�
 * 这和通知Notification（将在下一章中介绍）的传递方向正好相反。*/
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app/exerise2/testButton.dart';
+import 'package:flutter_app/exercise2/testButton.dart';
 
 class ShareDataWidget extends InheritedWidget {
   ShareDataWidget({@required this.data, Widget child}) : super(child: child);

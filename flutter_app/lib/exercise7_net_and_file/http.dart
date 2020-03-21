@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/exerise2/testButton.dart';
+import 'package:flutter_app/exercise2/testButton.dart';
 
 
 class HttpApp1 extends StatelessWidget {
