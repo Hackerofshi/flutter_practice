@@ -14,9 +14,10 @@ import 'exercise2/testTextFiled.dart';
 import 'exercise3_layout/Box.dart';
 import 'exercise3_layout/FlexAndExpandedAndAlign.dart';
 import 'exercise8/provider.dart';
+import 'exercise9_persistent_eader吸顶/sticky.dart';
 import 'login/app.dart';
 
-void main() => runApp(MyAppRoute());
+void main() => runApp(Sticky());
 
 
 
@@ -179,5 +180,23 @@ class MyApp2 extends StatelessWidget {
   }
 }
 
+
+class Sticky extends StatelessWidget{
+
+
+  @override
+  Widget build(BuildContext context) {
+
+    return new MaterialApp(
+      title: "Hello",
+      home: new Scaffold(
+        appBar:new AppBar(
+          title: new Text("Hello"),
+        ),
+        body: StickyDemo()
+      ),
+    );
+  }
+}
 
 
